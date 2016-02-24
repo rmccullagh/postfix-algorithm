@@ -1,0 +1,2 @@
+#!/bin/bash
+cc -Wall -Wextra -g calc.c main.c calcio.c calcbuffer.c -llinkedlist -lobject -o main

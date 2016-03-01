@@ -11,30 +11,9 @@
 
 extern Stack pstack;
 
-static void dtor(void *value)
-{
-	objectDestroy((Object *)value);
-}
-
-static void opdtor(void *value)
-{
-
-}
-
-static void addhandler(void)
-{
-
-}
-
-typedef struct binaryop {
-	unsigned char op;
-	void(*handler)(void);
-} binaryop;
-
 #define IS_DIGIT(c) ((((c) >= '0') && ((c) <= '9')))
 
 #define IS_OPERATOR(c) ((((c) == '+') || ((c) == '-')))
-
 
 #define IS_WHITE(c) ((((c) == '\t') || ((c) == ' ')))
 

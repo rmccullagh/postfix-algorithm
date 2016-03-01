@@ -35,6 +35,9 @@ typedef struct binaryop {
 
 #define IS_OPERATOR(c) ((((c) == '+') || ((c) == '-')))
 
+
+#define IS_WHITE(c) ((((c) == '\t') || ((c) == ' ')))
+
 int main(void)
 {
 	gcinit();
@@ -85,10 +88,20 @@ int main(void)
 
 					}	
 					
+				} 
+				else if (IS_WHITE(*p.pos)) 
+				{
+					goto out;
+				}
+				else 
+				{
+					fprintf(stderr, "Invalid token %c\n", *p.pos);
+					goto finally;
 				}
 
-				p.pos++;
-				i++;
+				out:
+					p.pos++;
+					i++;
 			}
 
 			if(pstack.stacksize == 1) {
